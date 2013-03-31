@@ -1,24 +1,49 @@
 package com.castlewood.services.world.actor;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
-public abstract class AbstractActor<A extends Actor<A>> implements Actor<A>
+/**
+ * A {@link AbstractActor} is a simple implementation of an {@link Actor}. It
+ * performs simple actions such as storing {@link Message}s and looping through
+ * them when {@link Actor#evalute()} is called.
+ * 
+ * @author William Nguyen <L__A> <larevxpk@gmail.com>
+ * 
+ */
+public abstract class AbstractActor implements Actor
 {
 
-	private BlockingQueue<ActorMessage<A>> inbox = new LinkedBlockingQueue<>();
-
-	public abstract void executeMessages();
+	/**
+	 * The {@link AbstractActor#inbox} holds {@link Message}s. This is used a
+	 * {@link ConcurrentLinkedQueue} to ensure order as well as keeping the
+	 * {@link AbstractActor} concurrent.
+	 */
+	private Queue<Message> inbox = new ConcurrentLinkedQueue<>();
 
 	@Override
-	public boolean accept(ActorMessage<A> message)
+	public void accept(Message message)
 	{
-		return inbox.offer(message);
+		inbox.offer(message);
 	}
 
-	protected BlockingQueue<ActorMessage<A>> inbox()
+	@Override
+	public void evalute()
 	{
-		return inbox;
+		Message message;
+		while ((message = inbox.poll()) != null)
+		{
+			evaluate(message);
+		}
 	}
+
+	/**
+	 * This is used by the extending class. The extending class will have to
+	 * evaluate a {@link Message} one at a time.
+	 * 
+	 * @param message
+	 *            The {@link Message} to evaluate.
+	 */
+	protected abstract void evaluate(Message message);
 
 }
