@@ -42,7 +42,7 @@ public class Location implements MessageAcceptor<LocationTranslationMessage>
 	 * @param height
 	 *            The height.
 	 */
-	public Location(int x, int y, int height)
+	public Location(final int x, final int y, final int height)
 	{
 		this.x = x;
 		this.y = y;
@@ -50,7 +50,7 @@ public class Location implements MessageAcceptor<LocationTranslationMessage>
 	}
 
 	@Override
-	public void accept(LocationTranslationMessage message)
+	public void accept(final LocationTranslationMessage message)
 	{
 		if (message instanceof LocationChangeMessage)
 		{
@@ -74,7 +74,7 @@ public class Location implements MessageAcceptor<LocationTranslationMessage>
 	 */
 	public int x()
 	{
-		return x;
+		return this.x;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class Location implements MessageAcceptor<LocationTranslationMessage>
 	 */
 	public int y()
 	{
-		return y;
+		return this.y;
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class Location implements MessageAcceptor<LocationTranslationMessage>
 	 */
 	public int height()
 	{
-		return height;
+		return this.height;
 	}
 
 }

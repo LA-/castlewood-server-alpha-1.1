@@ -17,17 +17,17 @@ public class LocationTranslationMessage implements Message
 	/**
 	 * The x coordinate translation value.
 	 */
-	private int x;
+	private final int x;
 
 	/**
 	 * The y coordinate translation value.
 	 */
-	private int y;
+	private final int y;
 
 	/**
 	 * The height translation value.
 	 */
-	private int height;
+	private final int height;
 
 	/**
 	 * A {@link LocationTranslationMessage} is created with an x translation, y
@@ -41,7 +41,7 @@ public class LocationTranslationMessage implements Message
 	 * @param height
 	 *            The height translation value.
 	 */
-	public LocationTranslationMessage(int x, int y, int height)
+	public LocationTranslationMessage(final int x, final int y, final int height)
 	{
 		this.x = x;
 		this.y = y;
@@ -62,7 +62,7 @@ public class LocationTranslationMessage implements Message
 	 */
 	public int x()
 	{
-		return x;
+		return this.x;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class LocationTranslationMessage implements Message
 	 */
 	public int y()
 	{
-		return y;
+		return this.y;
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class LocationTranslationMessage implements Message
 	 */
 	public int height()
 	{
-		return height;
+		return this.height;
 	}
 
 }

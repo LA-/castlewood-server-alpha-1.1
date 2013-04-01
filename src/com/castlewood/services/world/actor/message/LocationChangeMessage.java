@@ -25,7 +25,7 @@ public class LocationChangeMessage extends LocationTranslationMessage
 	 * @param height
 	 *            The height value.
 	 */
-	public LocationChangeMessage(int x, int y, int height)
+	public LocationChangeMessage(final int x, final int y, final int height)
 	{
 		super(x, y, height);
 	}

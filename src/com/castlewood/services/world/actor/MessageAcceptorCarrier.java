@@ -18,7 +18,7 @@ public class MessageAcceptorCarrier extends AbstractActor
 	 * This holds the {@link MessageAcceptor}s for this
 	 * {@link MessageAcceptorCarrier}.
 	 */
-	private Map<Class<? extends MessageAcceptor<?>>, MessageAcceptor<? extends Message>> acceptors = new HashMap<>();
+	private final Map<Class<? extends MessageAcceptor<?>>, MessageAcceptor<? extends Message>> acceptors = new HashMap<>();
 
 	/**
 	 * A {@link MessageAcceptorCarrier} can be created with a predetermined set
@@ -29,18 +29,18 @@ public class MessageAcceptorCarrier extends AbstractActor
 	 *            {@link MessageAcceptorCarrier} is created.
 	 */
 	public MessageAcceptorCarrier(
-			MessageAcceptor<? extends Message>[] acceptors)
+			final MessageAcceptor<? extends Message>[] acceptors)
 	{
-		for (MessageAcceptor<? extends Message> acceptor : acceptors)
+		for (final MessageAcceptor<? extends Message> acceptor : acceptors)
 		{
-			register(acceptor);
+			this.register(acceptor);
 		}
 	}
 
 	@Override
-	protected void evaluate(Message message)
+	protected void evaluate(final Message message)
 	{
-		MessageAcceptor<Message> acceptor = (MessageAcceptor<Message>) acceptors
+		final MessageAcceptor<Message> acceptor = (MessageAcceptor<Message>) this.acceptors
 				.get(message.acceptor());
 		acceptor.accept(message);
 	}
@@ -52,9 +52,9 @@ public class MessageAcceptorCarrier extends AbstractActor
 	 * @param acceptor
 	 *            The {@link MessageAcceptor} to register.
 	 */
-	public void register(MessageAcceptor<? extends Message> acceptor)
+	public void register(final MessageAcceptor<? extends Message> acceptor)
 	{
-		acceptors.put(
+		this.acceptors.put(
 				(Class<? extends MessageAcceptor<?>>) acceptor.getClass(),
 				acceptor);
 	}
@@ -66,9 +66,10 @@ public class MessageAcceptorCarrier extends AbstractActor
 	 * @param type
 	 *            The {@link Class} of the {@link MessageAcceptor} to remove.
 	 */
-	public void remove(Class<? extends MessageAcceptor<? extends Message>> type)
+	public void remove(
+			final Class<? extends MessageAcceptor<? extends Message>> type)
 	{
-		acceptors.remove(type);
+		this.acceptors.remove(type);
 	}
 
 	/**
@@ -80,9 +81,9 @@ public class MessageAcceptorCarrier extends AbstractActor
 	 * @return The corresponding {@link MessageAcceptor}.
 	 */
 	public <A extends MessageAcceptor<? extends Message>> A acceptor(
-			Class<A> type)
+			final Class<A> type)
 	{
-		return (A) acceptors.get(type);
+		return (A) this.acceptors.get(type);
 	}
 
 }

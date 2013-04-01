@@ -19,21 +19,21 @@ public abstract class AbstractActor implements Actor
 	 * {@link ConcurrentLinkedQueue} to ensure order as well as keeping the
 	 * {@link AbstractActor} concurrent.
 	 */
-	private Queue<Message> inbox = new ConcurrentLinkedQueue<>();
+	private final Queue<Message> inbox = new ConcurrentLinkedQueue<>();
 
 	@Override
-	public void accept(Message message)
+	public void accept(final Message message)
 	{
-		inbox.offer(message);
+		this.inbox.offer(message);
 	}
 
 	@Override
 	public void evalute()
 	{
 		Message message;
-		while ((message = inbox.poll()) != null)
+		while ((message = this.inbox.poll()) != null)
 		{
-			evaluate(message);
+			this.evaluate(message);
 		}
 	}
 
