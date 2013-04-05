@@ -1,9 +1,9 @@
-package com.castlewood.services.world.actor.entity.mobile;
+package com.castlewood.actor.services.world.entity.mobile;
 
-import com.castlewood.services.world.actor.MessageAcceptor;
-import com.castlewood.services.world.actor.message.DirectionMessage;
-import com.castlewood.services.world.actor.message.PrimaryDirectionMessage;
-import com.castlewood.services.world.actor.message.SecondaryDirectionMessage;
+import com.castlewood.actor.MessageAcceptor;
+import com.castlewood.actor.services.world.message.DirectionMessage;
+import com.castlewood.actor.services.world.message.PrimaryDirectionMessage;
+import com.castlewood.actor.services.world.message.SecondaryDirectionMessage;
 
 /**
  * A set {@link Directions} contains a {@link Directions#primary} directions, or

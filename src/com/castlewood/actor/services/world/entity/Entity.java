@@ -1,7 +1,7 @@
-package com.castlewood.services.world.actor.entity;
+package com.castlewood.actor.services.world.entity;
 
-import com.castlewood.services.world.actor.MessageAcceptor;
-import com.castlewood.services.world.actor.MessageAcceptorCarrier;
+import com.castlewood.actor.MessageAcceptor;
+import com.castlewood.actor.MessageAcceptorCarrier;
 
 /**
  * An {@link Entity} is a {@link MessageAcceptorCarrier} with a {@link Location}

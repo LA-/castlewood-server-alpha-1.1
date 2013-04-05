@@ -1,6 +1,6 @@
-package com.castlewood.services.world.actor.entity.mobile;
+package com.castlewood.actor.services.world.entity.mobile;
 
-import com.castlewood.services.world.actor.message.LocationTranslationMessage;
+import com.castlewood.actor.services.world.message.LocationTranslationMessage;
 
 /**
  * A {@link Direction} represents a coordinate translation change using the

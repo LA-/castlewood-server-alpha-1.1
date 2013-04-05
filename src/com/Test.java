@@ -1,14 +1,14 @@
 package com;
 
-import com.castlewood.services.world.actor.entity.Entity;
-import com.castlewood.services.world.actor.entity.Location;
-import com.castlewood.services.world.actor.entity.mobile.Direction;
-import com.castlewood.services.world.actor.entity.mobile.Directions;
-import com.castlewood.services.world.actor.entity.mobile.MobileEntity;
-import com.castlewood.services.world.actor.message.LocationChangeMessage;
-import com.castlewood.services.world.actor.message.LocationTranslationMessage;
-import com.castlewood.services.world.actor.message.PrimaryDirectionMessage;
-import com.castlewood.services.world.actor.message.SecondaryDirectionMessage;
+import com.castlewood.actor.services.world.entity.Entity;
+import com.castlewood.actor.services.world.entity.Location;
+import com.castlewood.actor.services.world.entity.mobile.Direction;
+import com.castlewood.actor.services.world.entity.mobile.Directions;
+import com.castlewood.actor.services.world.entity.mobile.MobileEntity;
+import com.castlewood.actor.services.world.message.LocationChangeMessage;
+import com.castlewood.actor.services.world.message.LocationTranslationMessage;
+import com.castlewood.actor.services.world.message.PrimaryDirectionMessage;
+import com.castlewood.actor.services.world.message.SecondaryDirectionMessage;
 
 public class Test
 {
@@ -28,4 +28,5 @@ public class Test
 		System.out.println("Directions: [" + directions.primary() + ", "
 				+ directions.secondary() + "]");
 	}
+	
 }

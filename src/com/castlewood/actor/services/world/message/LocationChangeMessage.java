@@ -1,6 +1,6 @@
-package com.castlewood.services.world.actor.message;
+package com.castlewood.actor.services.world.message;
 
-import com.castlewood.services.world.actor.entity.Location;
+import com.castlewood.actor.services.world.entity.Location;
 
 /**
  * The {@link LocationChangeMessage} differs from the

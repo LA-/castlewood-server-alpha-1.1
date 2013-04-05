@@ -1,4 +1,4 @@
-package com.castlewood.services.world.actor;
+package com.castlewood.actor;
 
 /**
  * A {@link MessageAcceptor} accepts a {@link Message}. The

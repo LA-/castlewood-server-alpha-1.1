@@ -1,9 +1,9 @@
-package com.castlewood.services.world.actor.entity;
+package com.castlewood.actor.services.world.entity;
 
-import com.castlewood.services.world.actor.Message;
-import com.castlewood.services.world.actor.MessageAcceptor;
-import com.castlewood.services.world.actor.message.LocationChangeMessage;
-import com.castlewood.services.world.actor.message.LocationTranslationMessage;
+import com.castlewood.actor.Message;
+import com.castlewood.actor.MessageAcceptor;
+import com.castlewood.actor.services.world.message.LocationChangeMessage;
+import com.castlewood.actor.services.world.message.LocationTranslationMessage;
 
 /**
  * A {@link Location} represents a coordinate on the world map. It can accept a

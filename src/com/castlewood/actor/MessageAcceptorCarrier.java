@@ -1,4 +1,4 @@
-package com.castlewood.services.world.actor;
+package com.castlewood.actor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,14 +11,14 @@ import java.util.Map;
  * @author William Nguyen <L__A> <larevxpk@gmail.com>
  * 
  */
-public class MessageAcceptorCarrier extends AbstractActor
+public class MessageAcceptorCarrier extends AbstractActor<Message>
 {
 
 	/**
 	 * This holds the {@link MessageAcceptor}s for this
 	 * {@link MessageAcceptorCarrier}.
 	 */
-	private final Map<Class<? extends MessageAcceptor<?>>, MessageAcceptor<? extends Message>> acceptors = new HashMap<>();
+	protected final Map<Class<? extends MessageAcceptor<?>>, MessageAcceptor<? extends Message>> acceptors = new HashMap<>();
 
 	/**
 	 * A {@link MessageAcceptorCarrier} can be created with a predetermined set

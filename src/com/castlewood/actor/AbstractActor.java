@@ -1,4 +1,4 @@
-package com.castlewood.services.world.actor;
+package com.castlewood.actor;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @author William Nguyen <L__A> <larevxpk@gmail.com>
  * 
  */
-public abstract class AbstractActor implements Actor
+public abstract class AbstractActor<M extends Message> implements Actor<M>
 {
 
 	/**
@@ -19,10 +19,10 @@ public abstract class AbstractActor implements Actor
 	 * {@link ConcurrentLinkedQueue} to ensure order as well as keeping the
 	 * {@link AbstractActor} concurrent.
 	 */
-	private final Queue<Message> inbox = new ConcurrentLinkedQueue<>();
+	private final Queue<M> inbox = new ConcurrentLinkedQueue<>();
 
 	@Override
-	public void accept(final Message message)
+	public void accept(final M message)
 	{
 		this.inbox.offer(message);
 	}
@@ -30,7 +30,7 @@ public abstract class AbstractActor implements Actor
 	@Override
 	public void evalute()
 	{
-		Message message;
+		M message;
 		while ((message = this.inbox.poll()) != null)
 		{
 			this.evaluate(message);
@@ -44,6 +44,6 @@ public abstract class AbstractActor implements Actor
 	 * @param message
 	 *            The {@link Message} to evaluate.
 	 */
-	protected abstract void evaluate(Message message);
+	protected abstract void evaluate(M message);
 
 }

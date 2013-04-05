@@ -1,4 +1,4 @@
-package com.castlewood.services.world.actor.entity.mobile;
+package com.castlewood.actor.services.world.entity.mobile;
 
 /**
  * The {@link DirectionsQueue} is used to depict the

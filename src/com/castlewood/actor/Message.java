@@ -1,4 +1,4 @@
-package com.castlewood.services.world.actor;
+package com.castlewood.actor;
 
 /**
  * A {@link Message} is a packet of data for a {@link MessageAcceptor} to

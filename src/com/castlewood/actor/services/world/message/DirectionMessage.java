@@ -1,9 +1,9 @@
-package com.castlewood.services.world.actor.message;
+package com.castlewood.actor.services.world.message;
 
-import com.castlewood.services.world.actor.Message;
-import com.castlewood.services.world.actor.MessageAcceptor;
-import com.castlewood.services.world.actor.entity.mobile.Direction;
-import com.castlewood.services.world.actor.entity.mobile.Directions;
+import com.castlewood.actor.Message;
+import com.castlewood.actor.MessageAcceptor;
+import com.castlewood.actor.services.world.entity.mobile.Direction;
+import com.castlewood.actor.services.world.entity.mobile.Directions;
 
 /**
  * A {@link DirectionMessage} contains a single {@link Direction}. This will

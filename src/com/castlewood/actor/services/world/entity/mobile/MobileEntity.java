@@ -1,6 +1,6 @@
-package com.castlewood.services.world.actor.entity.mobile;
+package com.castlewood.actor.services.world.entity.mobile;
 
-import com.castlewood.services.world.actor.entity.Entity;
+import com.castlewood.actor.services.world.entity.Entity;
 
 /**
  * A {@link MobileEntity} is an {@link Entity} that can move.

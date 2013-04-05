@@ -1,4 +1,4 @@
-package com.castlewood.services.world.actor;
+package com.castlewood.actor;
 
 /**
  * An {@link Actor} is a {@link MessageAcceptor} where the {@link Message}s are
@@ -8,7 +8,7 @@ package com.castlewood.services.world.actor;
  * @author William Nguyen <L__A> <larevxpk@gmail.com>
  * 
  */
-public interface Actor extends MessageAcceptor<Message>
+public interface Actor<M extends Message> extends MessageAcceptor<M>
 {
 
 	/**
