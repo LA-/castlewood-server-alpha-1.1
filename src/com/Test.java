@@ -15,9 +15,9 @@ public class Test
 
 	public static void main(final String... args)
 	{
-		Entity entity = new MobileEntity();
-		Location location = entity.acceptor(Location.class);
-		Directions directions = entity.acceptor(Directions.class);
+		final Entity entity = new MobileEntity();
+		final Location location = entity.acceptor(Location.class);
+		final Directions directions = entity.acceptor(Directions.class);
 		entity.accept(new LocationChangeMessage(333, 444, 555));
 		entity.accept(new LocationTranslationMessage(1, 1, 1));
 		entity.accept(new PrimaryDirectionMessage(Direction.NORTH));
@@ -28,5 +28,5 @@ public class Test
 		System.out.println("Directions: [" + directions.primary() + ", "
 				+ directions.secondary() + "]");
 	}
-	
+
 }
