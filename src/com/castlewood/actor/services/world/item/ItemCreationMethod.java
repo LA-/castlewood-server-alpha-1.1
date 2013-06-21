@@ -44,6 +44,11 @@ public class ItemCreationMethod
 		return this.created;
 	}
 
+	/**
+	 * This gets the amount of the item created.
+	 * 
+	 * @return The amount.
+	 */
 	public int amount()
 	{
 		return amount;
