@@ -1,32 +1,48 @@
 package com;
 
-import com.castlewood.actor.services.world.entity.Entity;
-import com.castlewood.actor.services.world.entity.Location;
-import com.castlewood.actor.services.world.entity.mobile.Direction;
-import com.castlewood.actor.services.world.entity.mobile.Directions;
-import com.castlewood.actor.services.world.entity.mobile.MobileEntity;
-import com.castlewood.actor.services.world.message.LocationChangeMessage;
-import com.castlewood.actor.services.world.message.LocationTranslationMessage;
-import com.castlewood.actor.services.world.message.PrimaryDirectionMessage;
-import com.castlewood.actor.services.world.message.SecondaryDirectionMessage;
+import java.util.BitSet;
 
 public class Test
 {
 
 	public static void main(final String... args)
 	{
-		final Entity entity = new MobileEntity();
-		final Location location = entity.acceptor(Location.class);
-		final Directions directions = entity.acceptor(Directions.class);
-		entity.accept(new LocationChangeMessage(333, 444, 555));
-		entity.accept(new LocationTranslationMessage(1, 1, 1));
-		entity.accept(new PrimaryDirectionMessage(Direction.NORTH));
-		entity.accept(new SecondaryDirectionMessage(Direction.SOUTH));
-		entity.evalute();
-		System.out.println("Location: [" + location.x() + ", " + location.y()
-				+ ", " + location.height() + "]");
-		System.out.println("Directions: [" + directions.primary() + ", "
-				+ directions.secondary() + "]");
+		final boolean[] booleans = new boolean[10000];
+		final BitSet bitset = new BitSet(10000);
+		long start = System.nanoTime();
+		for (int i = 0; i < 9999; i++)
+		{
+			booleans[i] = true;
+		}
+		long elapsed = System.nanoTime() - start;
+		System.out.println("Using a booean array: " + elapsed);
+		start = System.nanoTime();
+		for (int i = 0; i < 9999; i++)
+		{
+			bitset.set(i, true);
+		}
+		elapsed = System.nanoTime() - start;
+		System.out.println("Using a bitset: " + elapsed);
+		start = System.nanoTime();
+		for (int i = 0; i < 9999; i++)
+		{
+			if (booleans[i])
+			{
+
+			}
+		}
+		elapsed = System.nanoTime() - start;
+		System.out.println("Using a booean array [if statements]: " + elapsed);
+		start = System.nanoTime();
+		for (int i = 0; i < 9999; i++)
+		{
+			if (bitset.get(i))
+			{
+
+			}
+		}
+		elapsed = System.nanoTime() - start;
+		System.out.println("Using a bitset [if statements]: " + elapsed);
 	}
 
 }

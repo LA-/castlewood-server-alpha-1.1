@@ -1,7 +1,6 @@
 package com.castlewood.actor.services.network.message;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 
 import com.castlewood.actor.Message;
 import com.castlewood.actor.MessageAcceptor;
@@ -16,11 +15,6 @@ import com.castlewood.actor.services.network.Client;
  */
 public abstract class NetworkMessage implements Message
 {
-
-	/**
-	 * This {@link ByteBuf} holds the information of a {@link NetworkMessage}.
-	 */
-	protected ByteBuf buffer = Unpooled.buffer();
 
 	/**
 	 * Default no-args constructor used to create new {@link NetworkMessage}

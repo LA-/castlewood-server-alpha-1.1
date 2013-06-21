@@ -20,12 +20,13 @@ public class GameMessageDecoder extends ByteToMessageDecoder
 {
 
 	@Override
-	protected void decode(ChannelHandlerContext ctx, ByteBuf in,
-			MessageList<Object> out) throws Exception
+	protected void decode(final ChannelHandlerContext ctx, final ByteBuf in,
+			final MessageList<Object> out) throws Exception
 	{
-		int opcode = (in.readUnsignedByte() - ctx.channel().attr(Client.KEY)
-				.get().decoder().nextInt()) & 0xFF;
-		NetworkMessage message = NetworkMessageManager.message(opcode);
+		final int opcode = in.readUnsignedByte()
+				- ctx.channel().attr(Client.KEY).get().decoder().nextInt()
+				& 0xFF;
+		final NetworkMessage message = NetworkMessageManager.message(opcode);
 		message.decode(in);
 		out.add(message);
 	}

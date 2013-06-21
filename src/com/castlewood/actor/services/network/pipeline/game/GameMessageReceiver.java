@@ -19,10 +19,10 @@ public class GameMessageReceiver extends ChannelInboundHandlerAdapter
 {
 
 	@Override
-	public void messageReceived(ChannelHandlerContext ctx,
-			MessageList<Object> msgs) throws Exception
+	public void messageReceived(final ChannelHandlerContext ctx,
+			final MessageList<Object> msgs) throws Exception
 	{
-		for (Object message : msgs)
+		for (final Object message : msgs)
 		{
 			NetworkMessageManager.handler((NetworkMessage) message).handle(
 					ctx.channel().attr(Player.KEY).get(),

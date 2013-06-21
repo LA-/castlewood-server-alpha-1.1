@@ -39,11 +39,11 @@ public class NetworkMessageManager
 	 *            The operation code.
 	 * @return The {@link NetworkMessage}.
 	 */
-	public static NetworkMessage message(int opcode)
+	public static NetworkMessage message(final int opcode)
 	{
 		try
 		{
-			return MESSAGES.get(opcode).newInstance();
+			return NetworkMessageManager.MESSAGES.get(opcode).newInstance();
 		}
 		catch (InstantiationException | IllegalAccessException e)
 		{
@@ -61,9 +61,10 @@ public class NetworkMessageManager
 	 * @return The {@link NetworkMessageHandler}.
 	 */
 	public static <T extends NetworkMessage> NetworkMessageHandler<T> handler(
-			NetworkMessage message)
+			final NetworkMessage message)
 	{
-		return (NetworkMessageHandler<T>) HANDLERS.get(message.getClass());
+		return (NetworkMessageHandler<T>) NetworkMessageManager.HANDLERS
+				.get(message.getClass());
 	}
 
 }
